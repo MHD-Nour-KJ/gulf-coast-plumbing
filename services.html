@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Gulf Coast Plumbing LLC | Tampa Bay</title>
+  <meta name="description" content="Explore master plumbing services by Gulf Coast Plumbing. Water heaters, drain clearing, sewer repair, whole-home repiping, filtration, and 24/7 emergency leak detection.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo_square.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. FLOATING GLASSMORPHISM PILL NAVBAR
+       ========================================================================= -->
+  <header class="header-glass" id="main-header">
+    <div class="header-glass-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link" aria-label="Gulf Coast Plumbing Home">
+        <img src="assets/images/logo.svg" alt="Gulf Coast Plumbing Logo" class="brand-logo-img">
+        <span class="brand-title">Gulf Coast Plumbing</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="about.html">About Us</a></li>
+          <li class="nav-item active"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="projects.html">Projects</a></li>
+          <li class="nav-item"><a href="transformations.html">Before &amp; After</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="nav-actions">
+        <!-- CTA Pill Button with Silk Halo and Craftsman Arrow -->
+        <a href="contact.html" class="btn-pill-cta" data-open-modal="quote">
+          <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+          <span class="btn-text">Get a Quote</span>
+          <span class="btn-arrow-circle" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <!-- 9-Dot Terminal Matrix Button -->
+        <button class="btn-icon-round" id="btn-grid-drawer" aria-label="Quick contact menu">
+          <svg class="icon-terminal-matrix" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="5" cy="5" r="2" fill="currentColor"></circle>
+            <circle cx="12" cy="5" r="2" fill="currentColor"></circle>
+            <circle cx="19" cy="5" r="2" fill="currentColor"></circle>
+            <circle cx="5" cy="12" r="2" fill="currentColor"></circle>
+            <circle cx="12" cy="12" r="2" fill="#ff5500"></circle>
+            <circle cx="19" cy="12" r="2" fill="currentColor"></circle>
+            <circle cx="5" cy="19" r="2" fill="currentColor"></circle>
+            <circle cx="12" cy="19" r="2" fill="currentColor"></circle>
+            <circle cx="19" cy="19" r="2" fill="currentColor"></circle>
+          </svg>
+        </button>
+
+        <!-- Mobile Nav Toggle -->
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open mobile menu">
+          <svg class="icon-menu-craftsman" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
+            <line x1="3" y1="12" x2="17" y2="12" stroke="#ff5500"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         2. SUBPAGE HERO SECTION
+         ========================================================================= -->
+    <section class="subpage-hero" id="services-hero">
+      <div class="container subpage-hero-content">
+        <h1 class="subpage-hero-title reveal-generic">Comprehensive Residential and Commercial Plumbing Services</h1>
+        <p class="subpage-hero-desc reveal-generic stagger-1">
+          From emergency leak diagnosis to water heater replacements and whole-home repiping across St. Petersburg, Tampa, and Clearwater. Every job features upfront flat-rate pricing and licensed master craftsmanship.
+        </p>
+        <div class="subpage-hero-actions reveal-generic stagger-2">
+          <a href="#catalog" class="btn-pill-cta">
+            <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+            <span class="btn-text">Browse Services</span>
+            <span class="btn-arrow-circle" aria-hidden="true">
+              <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+          <a href="tel:7275550199" class="btn-pill-translucent">
+            <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+            <span class="btn-text">Call (727) 555-0199</span>
+            <span class="btn-arrow-circle" aria-hidden="true">
+              <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ruler Divider -->
+    <div class="ruler-divider reveal-generic" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         3. SIX CORE SERVICES CATALOG GRID
+         ========================================================================= -->
+    <section class="page-section" id="catalog">
+      <div class="container">
+        <div class="section-header-clean reveal-generic">
+          <h2 class="section-headline">Master Plumbing Solutions Built for Florida Properties</h2>
+        </div>
+
+        <div class="service-catalog-grid">
+          <!-- Service 1: Drain & Blockage Clearing -->
+          <div class="service-catalog-card reveal-jiggle stagger-1">
+            <img src="assets/optimized/work_drain.webp" alt="Drain clearing technician at work" class="service-catalog-img">
+            <h3 class="service-catalog-title">Drain &amp; Blockage Clearing</h3>
+            <p class="service-catalog-desc">
+              Stubborn clogs, slow drains, and recurring line backups cleared using motorized augers and high-pressure hydro-jetting equipment.
+            </p>
+            <ul class="service-spec-list">
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>High-pressure hydro-jetting options</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Video camera line inspection</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Restores full inner pipe diameter</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-pill-cta" data-open-modal="quote" style="width: 100%; justify-content: center;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Book Drain Clearing</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Service 2: Water Heater Installation & Repairs -->
+          <div class="service-catalog-card reveal-jiggle stagger-2">
+            <img src="assets/optimized/hero_slide2.webp" alt="Bradford White water heater installation" class="service-catalog-img">
+            <h3 class="service-catalog-title">Water Heater Systems</h3>
+            <p class="service-catalog-desc">
+              Turnkey residential and commercial water heating. Rapid same-day tank replacements and high-efficiency tankless upgrades with solid copper fittings.
+            </p>
+            <ul class="service-spec-list">
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Bradford White &amp; Rheem units</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Thermal expansion tanks &amp; pans</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Tankless gas &amp; electric retrofits</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-pill-cta" data-open-modal="quote" style="width: 100%; justify-content: center;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Book Water Heater Service</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Service 3: Whole-Home Repiping -->
+          <div class="service-catalog-card reveal-jiggle stagger-3">
+            <img src="assets/optimized/hero_slide1.webp" alt="Sub-slab plumbing repipe in progress" class="service-catalog-img">
+            <h3 class="service-catalog-title">Whole-Home Repiping</h3>
+            <p class="service-catalog-desc">
+              Eliminate recurring pinhole leaks, rusty water, and low water pressure. We replace old polybutylene and galvanized pipes with Uponor PEX-A and copper manifolds.
+            </p>
+            <ul class="service-spec-list">
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Non-invasive wall routing</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>10-year comprehensive labor warranty</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Full municipal permitting &amp; sign-off</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-pill-cta" data-open-modal="quote" style="width: 100%; justify-content: center;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Request Repipe Estimate</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Service 4: Sewer Repair & Replacement -->
+          <div class="service-catalog-card reveal-jiggle stagger-4">
+            <img src="assets/optimized/work_sewer.webp" alt="Main sewer line replacement trench" class="service-catalog-img">
+            <h3 class="service-catalog-title">Sewer Line Repair</h3>
+            <p class="service-catalog-desc">
+              Excavation and replacement of deteriorated clay or Orangeburg main lines with Schedule-40 PVC sanitary piping and accessible ground-level cleanouts.
+            </p>
+            <ul class="service-spec-list">
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Camera diagnostics &amp; locating</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Dual two-way cleanout installations</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Laser-checked slope gradients</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-pill-cta" data-open-modal="quote" style="width: 100%; justify-content: center;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Book Sewer Inspection</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Service 5: Whole-Home Water Filtration -->
+          <div class="service-catalog-card reveal-jiggle stagger-5">
+            <img src="assets/optimized/work_filtration.webp" alt="Dual whole-home water treatment setup" class="service-catalog-img">
+            <h3 class="service-catalog-title">Water Filtration &amp; Softening</h3>
+            <p class="service-catalog-desc">
+              Protect your family and appliances from hard Florida water, chloramines, and heavy minerals with dual-tank filtration and conditioning systems.
+            </p>
+            <ul class="service-spec-list">
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Dual-stage carbon block filtration</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Scale prevention for fixtures</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Custom copper bypass loops</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-pill-cta" data-open-modal="quote" style="width: 100%; justify-content: center;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Explore Water Treatment</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Service 6: 24/7 Emergency Leak Detection -->
+          <div class="service-catalog-card reveal-jiggle stagger-6">
+            <img src="assets/optimized/hero_slide3.webp" alt="Emergency plumbing repair site" class="service-catalog-img">
+            <h3 class="service-catalog-title">24/7 Emergency Leak Dispatch</h3>
+            <p class="service-catalog-desc">
+              Acoustic leak locating, thermal imaging, and rapid isolation for hidden slab leaks, burst supply pipes, and ruptured main shutoffs across Tampa Bay.
+            </p>
+            <ul class="service-spec-list">
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Arrival target in under 60 minutes</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Zero overtime or holiday surcharges</span>
+              </li>
+              <li class="service-spec-item">
+                <span class="service-spec-icon">&#10003;</span>
+                <span>Non-invasive acoustic diagnostics</span>
+              </li>
+            </ul>
+            <a href="tel:7275550199" class="btn-pill-cta" style="width: 100%; justify-content: center;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Call (727) 555-0199</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ruler Divider -->
+    <div class="ruler-divider reveal-generic" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         4. INTERACTIVE SERVICE SWITCHER SECTION
+         ========================================================================= -->
+    <section class="services-section" id="interactive-preview">
+      <div class="container">
+        <div class="section-header-clean reveal-generic">
+          <h2 class="section-headline light">Interactive Service Selector</h2>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-pills-list" role="tablist" aria-label="Plumbing Services List">
+            <button class="service-pill-btn reveal-generic stagger-1" role="tab" aria-selected="false" data-service-idx="0">
+              <span>Drain &amp; Blockage Clearing</span>
+              <span class="pill-arrow" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+            <button class="service-pill-btn reveal-generic stagger-2" role="tab" aria-selected="false" data-service-idx="1">
+              <span>Residential Plumbing &amp; Repipes</span>
+              <span class="pill-arrow" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+            <button class="service-pill-btn active reveal-generic stagger-3" role="tab" aria-selected="true" data-service-idx="2">
+              <span>Water Heater Installation &amp; Repairs</span>
+              <span class="pill-arrow" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+            <button class="service-pill-btn reveal-generic stagger-4" role="tab" aria-selected="false" data-service-idx="3">
+              <span>Sewer Repair &amp; Replacement</span>
+              <span class="pill-arrow" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+            <button class="service-pill-btn reveal-generic stagger-5" role="tab" aria-selected="false" data-service-idx="4">
+              <span>Whole-Home Water Filtration</span>
+              <span class="pill-arrow" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+            <button class="service-pill-btn reveal-generic stagger-6" role="tab" aria-selected="false" data-service-idx="5">
+              <span>24/7 Emergency Leak Detection</span>
+              <span class="pill-arrow" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="service-preview-card reveal-jiggle stagger-2" role="tabpanel">
+            <div class="service-preview-img-wrap">
+              <img id="service-preview-img" src="assets/optimized/hero_slide2.webp" alt="Water heater installation preview">
+            </div>
+            <div class="service-preview-details">
+              <h3 id="service-preview-title" class="service-preview-title">Water Heater Installation &amp; Repairs</h3>
+              <p id="service-preview-desc" class="service-preview-desc">
+                Complete residential and commercial water heating solutions. From high-efficiency tankless upgrades to rapid same-day tank replacements with expansion tanks, solid copper piping, and emergency safety pans.
+              </p>
+              <div>
+                <a href="contact.html" class="btn-pill-cta" id="service-preview-btn" data-open-modal="quote">
+                  <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+                  <span class="btn-text">Discover More</span>
+                  <span class="btn-arrow-circle" aria-hidden="true">
+                    <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ruler Divider -->
+    <div class="ruler-divider reveal-generic" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         5. UPFRONT PRICING & SERVICE PROMISE
+         ========================================================================= -->
+    <section class="page-section" id="service-promise">
+      <div class="container">
+        <div class="quote-card reveal-jiggle" style="display: block; text-align: center; max-width: 860px; margin: 0 auto;">
+          <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-primary);">Clear Flat-Rate Pricing Before Work Begins</h2>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto 2rem auto; line-height: 1.6;">
+            We believe you deserve honest answers and fixed numbers. When our plumber inspects your issue, you get a written price quote upfront.
+          </p>
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="contact.html" class="btn-pill-cta" data-open-modal="quote">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Schedule Service Online</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+            <a href="tel:7275550199" class="btn-pill-translucent" style="border: 1px solid var(--border-light); background: #ffffff; color: var(--text-primary);">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Call (727) 555-0199</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       6. OBSIDIAN DARK FOOTER
+       ========================================================================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand reveal-generic stagger-1">
+          <a href="index.html" class="brand-link">
+            <img src="assets/images/logo.svg" alt="Gulf Coast Plumbing Logo" class="brand-logo-img">
+            <span class="brand-title">Gulf Coast Plumbing</span>
+          </a>
+          <p>
+            Licensed and insured plumbing solutions serving homeowners, property managers, and commercial facilities across St. Petersburg, Tampa, Clearwater, and surrounding Florida communities.
+          </p>
+        </div>
+
+        <div class="footer-col reveal-generic stagger-2">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="projects.html">Project Gallery</a></li>
+            <li><a href="transformations.html">Before &amp; After</a></li>
+            <li><a href="contact.html">Contact &amp; Dispatch</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col reveal-generic stagger-3">
+          <h4>Core Services</h4>
+          <ul>
+            <li><a href="services.html">Drain Clearing</a></li>
+            <li><a href="services.html">Water Heaters</a></li>
+            <li><a href="services.html">Sewer Line Repairs</a></li>
+            <li><a href="services.html">Whole-Home Repiping</a></li>
+            <li><a href="services.html">Water Filtration</a></li>
+            <li><a href="services.html">Emergency Leak Dispatch</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col reveal-generic stagger-4">
+          <h4>Contact &amp; Hours</h4>
+          <ul>
+            <li style="color: #cbd5e1; font-weight: 700;">(727) 555-0199</li>
+            <li>dispatch@gulfcoastplumbingfl.com</li>
+            <li>2840 Gulf Coast Pkwy, Suite 100, St. Petersburg, FL 33716</li>
+            <li style="color: var(--brand-orange); font-weight: 700; margin-top: 0.5rem;">Open 24/7 Monday &ndash; Sunday</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom reveal-generic stagger-5">
+        <div>&copy; 2026 Gulf Coast Plumbing LLC. All rights reserved. State Certified Plumbing Contractor.</div>
+        <div>Family-Owned &bull; Proudly Serving Tampa Bay &bull; Florida</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       7. UNIFIED DISPATCH & SERVICE PANEL
+       ========================================================================= -->
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+
+  <aside class="quick-drawer unified-dispatch-panel" id="quick-drawer" aria-label="Dispatch and quote panel" aria-hidden="true" role="dialog">
+    <div class="drawer-header-bar drawer-stagger-1">
+      <div class="drawer-brand-wrap">
+        <img src="assets/images/logo_square.svg" alt="Gulf Coast Plumbing Logo" class="drawer-brand-logo">
+        <div class="drawer-brand-text">
+          <span class="drawer-brand-name">Gulf Coast Plumbing</span>
+          <span class="drawer-status-chip">On-call master plumbers</span>
+        </div>
+      </div>
+      <button id="btn-close-drawer" class="btn-icon-round btn-drawer-close" data-close-modal aria-label="Close panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-tabs-wrapper drawer-stagger-2">
+      <div class="drawer-tabs-track" id="drawer-tabs-track" role="tablist" aria-label="Panel tabs" data-active-tab="dispatch">
+        <span class="drawer-tab-pill-indicator" id="tab-pill-indicator" aria-hidden="true"></span>
+        <button type="button" class="drawer-tab-btn active" id="tab-btn-dispatch" data-drawer-tab="dispatch" role="tab" aria-selected="true" aria-controls="drawer-view-dispatch">
+          Emergency dispatch
+        </button>
+        <button type="button" class="drawer-tab-btn" id="tab-btn-quote" data-drawer-tab="quote" role="tab" aria-selected="false" aria-controls="drawer-view-quote">
+          Request a quote
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer-content-scroll">
+      <section class="drawer-view active drawer-stagger-3" id="drawer-view-dispatch" role="tabpanel" aria-labelledby="tab-btn-dispatch">
+        <div class="drawer-dispatch-alert">
+          <div class="dispatch-alert-badge">Active 24/7 dispatch</div>
+          <p class="dispatch-alert-text">
+            Direct line to master plumbers in St. Petersburg and Tampa. Emergency trucks fully stocked.
+          </p>
+        </div>
+
+        <div class="drawer-hotline-card">
+          <div class="hotline-card-label">Direct dispatch hotline</div>
+          <a href="tel:7275550199" class="hotline-card-number" aria-label="Call direct dispatch hotline at 727 365 7882">
+            <span>(727) 555-0199</span>
+            <span class="hotline-card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="drawer-view drawer-stagger-3" id="drawer-view-quote" role="tabpanel" aria-labelledby="tab-btn-quote" hidden>
+        <div class="calculator-card">
+          <form class="calculator-form" id="quick-quote-form" data-quote-form>
+            <div class="calc-field-group">
+              <label for="drawer-name" class="calc-label">Your Name</label>
+              <input type="text" id="drawer-name" name="name" class="form-input" placeholder="Full name" required>
+            </div>
+            <div class="calc-field-group">
+              <label for="drawer-phone" class="calc-label">Phone Number</label>
+              <input type="tel" id="drawer-phone" name="phone" class="form-input" placeholder="(727) 000-0000" required>
+            </div>
+            <div class="calc-field-group">
+              <label for="drawer-service" class="calc-label">Service Needed</label>
+              <select id="drawer-service" name="service" class="form-select" required>
+                <option value="">Select a service</option>
+                <option value="Drain & Blockage Clearing">Drain &amp; Blockage Clearing</option>
+                <option value="Water Heater Repair or Replacement">Water Heater Repair or Replacement</option>
+                <option value="Sewer Line Repair & Replacement">Sewer Line Repair &amp; Replacement</option>
+                <option value="Whole-Home Repiping">Whole-Home Repiping</option>
+                <option value="Water Filtration & Softeners">Water Filtration &amp; Softeners</option>
+                <option value="Emergency Leak Detection">Emergency Leak Detection</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-pill-cta" style="width: 100%; justify-content: center; margin-top: 1rem;">
+              <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+              <span class="btn-text">Submit Request</span>
+              <span class="btn-arrow-circle" aria-hidden="true">
+                <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       8. MOBILE NAVIGATION DRAWER
+       ========================================================================= -->
+  <aside class="quick-drawer" id="mobile-nav-drawer" style="background: #0f1218;" aria-label="Mobile Navigation">
+    <div>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+        <a href="index.html" class="brand-link">
+          <img src="assets/images/logo.svg" alt="Logo" class="brand-logo-img">
+          <span class="brand-title">Gulf Coast Plumbing</span>
+        </a>
+        <button id="btn-close-mobile-nav" class="btn-icon-round" aria-label="Close menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-drawer-links" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <a href="index.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Home</a>
+        <a href="about.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">About Us</a>
+        <a href="services.html" style="font-size: 1.2rem; font-weight: 700; color: #ff5500;">Services</a>
+        <a href="projects.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Projects</a>
+        <a href="transformations.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Before &amp; After</a>
+        <a href="contact.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Contact</a>
+      </nav>
+    </div>
+
+    <div>
+      <a href="tel:7275550199" class="btn-pill-cta" style="width: 100%; justify-content: center;">
+        <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
+        <span class="btn-text">Call (727) 555-0199</span>
+        <span class="btn-arrow-circle" aria-hidden="true">
+          <svg class="icon-arrow-craftsman" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Script -->
+  <script src="assets/js/anime.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

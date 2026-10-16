@@ -1,0 +1,34 @@
+# Protected governance files & agents
+AGENTS.md
+AGENTS.*.md
+.agents/
+.local-testing/
+.worktrees/
+.codex/
+PROJECT_GUIDE.md
+app/test-components/
+
+# Local scraping & verification artifacts
+scratch/
+verification/
+scraped_data/
+*.py
+hairline-*.png
+
+# Unused raw asset archives (only assets/optimized, assets/images, and assets/js are used by site)
+assets/backup_original/
+assets/fb_full_photos/
+assets/fb_gallery/
+assets/fb_hi_res/
+assets/fb_posts/
+assets/site_images/
+
+# Build & deployment artifacts
+.vercel/
+node_modules/
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
