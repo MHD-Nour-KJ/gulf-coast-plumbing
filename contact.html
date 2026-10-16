@@ -500,14 +500,17 @@
   <!-- =========================================================================
        7. MOBILE NAVIGATION DRAWER
        ========================================================================= -->
-  <aside class="quick-drawer" id="mobile-nav-drawer" style="background: #0f1218;" aria-label="Mobile Navigation">
+  <aside class="quick-drawer mobile-nav-panel" id="mobile-nav-drawer" aria-label="Mobile Navigation" aria-hidden="true" role="dialog">
     <div>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
-        <a href="index.html" class="brand-link">
+      <div class="mobile-nav-header">
+        <a href="index.html" class="brand-link" aria-label="Gulf Coast Plumbing Home">
           <img src="assets/images/logo.svg" alt="Logo" class="brand-logo-img">
-          <span class="brand-title">Gulf Coast Plumbing</span>
+          <div>
+            <span class="brand-title">Gulf Coast Plumbing</span>
+            <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 600;">St. Petersburg &bull; Tampa Bay</div>
+          </div>
         </a>
-        <button id="btn-close-mobile-nav" class="btn-icon-round" aria-label="Close menu">
+        <button id="btn-close-mobile-nav" class="btn-icon-round btn-drawer-close" aria-label="Close menu">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -515,17 +518,69 @@
         </button>
       </div>
 
-      <nav class="mobile-drawer-links" style="display: flex; flex-direction: column; gap: 1.25rem;">
-        <a href="index.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Home</a>
-        <a href="about.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">About Us</a>
-        <a href="services.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Services</a>
-        <a href="projects.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Projects</a>
-        <a href="transformations.html" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">Before &amp; After</a>
-        <a href="contact.html" style="font-size: 1.2rem; font-weight: 700; color: #ff5500;">Contact</a>
+      <nav class="mobile-nav-links" aria-label="Mobile Primary Navigation">
+        <a href="index.html" class="mobile-nav-link">
+          <span>Home</span>
+          <span class="mobile-nav-arrow" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="about.html" class="mobile-nav-link">
+          <span>About Us</span>
+          <span class="mobile-nav-arrow" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="services.html" class="mobile-nav-link">
+          <span>Services</span>
+          <span class="mobile-nav-arrow" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="projects.html" class="mobile-nav-link">
+          <span>Projects</span>
+          <span class="mobile-nav-arrow" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="transformations.html" class="mobile-nav-link">
+          <span>Before &amp; After</span>
+          <span class="mobile-nav-arrow" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="contact.html" class="mobile-nav-link active">
+          <span>Contact</span>
+          <span class="mobile-nav-arrow" aria-hidden="true">
+            <svg class="icon-arrow-craftsman" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
       </nav>
     </div>
 
-    <div>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-hotline">
+        <span class="mobile-nav-hotline-label">24/7 Master Plumber Dispatch</span>
+        <a href="tel:7275550199" class="mobile-nav-hotline-phone">(727) 555-0199</a>
+      </div>
       <a href="tel:7275550199" class="btn-pill-cta" style="width: 100%; justify-content: center;">
         <span class="btn-silk-halo" aria-hidden="true"><span class="btn-silk-beam"></span></span>
         <span class="btn-text">Call (727) 555-0199</span>

@@ -575,7 +575,7 @@ function initModalsAndDrawers() {
     closeMobileNav.addEventListener('click', closeMobileNavigation);
   }
 
-  // Close mobile nav on link click with smooth scroll
+  // Handle in-page hash links with smooth scroll; allow standard page navigation without interference
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
   mobileLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -591,8 +591,6 @@ function initModalsAndDrawers() {
             targetEl.scrollIntoView({ behavior: 'smooth' });
           }, 200);
         }
-      } else {
-        closeMobileNavigation();
       }
     });
   });
