@@ -738,7 +738,7 @@ const NG = 6, GZ0 = 42, GZ1 = 12.6, GR = 12.8;
 
 function mount({ stage, svg, read }, value) {
   const bag = disposer();
-  let dur = clamp(value, 3, 14), act = -1;
+  let dur = clamp(value, 3, 14), act = -2;
   const rate = spring(1), lift = spring(0), drop = spring(0);
 
   const C = Cam(45, 0.5, 5.2);
