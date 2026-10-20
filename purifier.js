@@ -1,161 +1,176 @@
 /**
- * Purifier: a whole-home water purification canister on a foundation plinth.
- * Raw water enters with dark sediment particles, passes through the cylindrical
- * core where impurities are trapped, and purified clean water flows out.
- * Runs as a continuous, ambient physical purification animation.
+ * Sump: a whole-home filter under its brass head. Two risers bring the water
+ * into the head; sediment falls through the clear bowl onto the pleated
+ * cartridge and settles into the mound on the floor. The pointer names the
+ * part it is over; over the sump it slows the fall so one grain can be read.
  */
 const {
-  Cam, clamp, facing, fit, open, poly, proj, rings, seg,
-  solid, put, prism, unproj, spring, stepS, tween, tset, tval, tdone,
-  disposer, mk, place, pointer, register, ringAt,
+  Cam, circ, clamp, facing, fit, hull, lerp, mk, open, place, pointer, poly, proj,
+  prism, put, rad, register, ringAt, run, seg, solid, spring, stepS, disposer,
 } = HL;
 
-const NP = 14, NC = 8;
+const A = rad(45), CA = Math.cos(A), SA = Math.sin(A);
+const R = 15, ZB = 9, ZK = 12, ZT = 44;
+const CR = 12.4, CZ0 = 13, CZ1 = 38;
+const BR = 15.8, BZ0 = 39.6, BZ1 = 43.8;
+const RX = 6.5, RR = 2.8, RZ = 60;
+const NG = 6, GZ0 = 42, GZ1 = 12.6, GR = 12.8;
 
 function mount({ stage, svg, read }, value) {
   const bag = disposer();
+  let dur = clamp(value, 3, 14), act = -1;
+  const rate = spring(1), lift = spring(0), drop = spring(0);
 
-  const C = Cam(45, 0.5, 2.08);
-  fit(C, [
-    [-4, -4, -8], [84, 84, -8], [84, -4, 0], [-4, 84, 0],
-    [40, 40, 54], [14, 66, 38], [66, 14, 38],
-  ], 200, 166);
+  const C = Cam(45, 0.5, 5.2);
+  fit(C, [[-RX - RR, -RR, RZ], [RX + RR, RR, RZ], [0, 0, RZ], [0, 0, ZB], [R, R, ZB], [-R, -R, ZB]], 200, 156);
   const P = proj(C), front = facing(C);
   const g = mk("g", {}, svg);
 
-  // 1. Plinth (ground slab) and guides
-  const [pr, pi] = rings(-4, -4, 84, 84, 8, 2.0);
-  const plinth = solid(g);
-  put(plinth, prism(P, front, pr, pi, -8, 0));
-  const guides = mk("path", { class: "nf dash lo" }, g);
-  guides.setAttribute("d", seg(P(14, -2, 0), P(14, 82, 0)) + seg(P(40, -2, 0), P(40, 82, 0)) + seg(P(66, -2, 0), P(66, 82, 0)));
+  const disc = (x, y, r, n = 32) => circ(r, n).map((q) => ({ u: q.u + x, v: q.v + y, nu: q.nu, nv: q.nv }));
+  const radAt = (z) => z >= ZK ? R : R * Math.sqrt(Math.max(0, 1 - ((ZK - z) / (ZK - ZB)) ** 2));
+  const floor = (r) => ZK - (ZK - ZB) * Math.sqrt(Math.max(0, 1 - (r / R) ** 2));
+  const rimRing = (z, r, n = 32) => open(ringAt(P, disc(0, 0, r, n), z));
 
-  // 2. Raw Water Inlet (Left)
-  const gIn = mk("g", {}, g);
-  const [rInR, rInI] = rings(11, 63, 17, 69, 2.6, 0.6);
-  const pipeIn = solid(gIn);
-  put(pipeIn, prism(P, front, rInR, rInI, 0, 36));
-  const runIn = mk("path", { class: "nf sil" }, gIn);
-  runIn.setAttribute("d", seg(P(14, 66, 36), P(32, 48, 36)));
-
-  // 3. Purification Canister (Center)
-  const gCore = mk("g", {}, g);
-  const [rBmR, rBmI] = rings(32, 32, 48, 48, 7.5, 1.2);
-  const baseMount = solid(gCore);
-  put(baseMount, prism(P, front, rBmR, rBmI, 0, 4));
-
-  // Transparent / outer canister
-  const [rCanR, rCanI] = rings(28, 28, 52, 52, 11.5, 1.8);
-  const canister = solid(gCore);
-  put(canister, prism(P, front, rCanR, rCanI, 4, 34));
-
-  // Inner porous filtration core (cartridge barrier)
-  const [rCoreR, rCoreI] = rings(35, 35, 45, 45, 4.8, 1.0);
-  const core = solid(gCore);
-  put(core, prism(P, front, rCoreR, rCoreI, 6, 32));
-  core.sil.classList.add("lo");
-
-  // Top manifold head / cap
-  const [rCapR, rCapI] = rings(27, 27, 53, 53, 12.5, 1.8);
-  const cap = solid(gCore);
-  put(cap, prism(P, front, rCapR, rCapI, 34, 40));
-
-  // Pressure gauge on top cap
-  const [gcx, gcy] = P(44, 44, 42);
-  mk("circle", { cx: gcx, cy: gcy, r: 4.8, class: "lo" }, gCore);
-  mk("circle", { cx: gcx, cy: gcy, r: 3.6, class: "nf sil" }, gCore);
-  const needle = mk("path", { class: "nf hi" }, gCore);
-  needle.setAttribute("d", seg([gcx, gcy], [gcx + 2.8 * Math.cos(-0.3), gcy + 2.8 * Math.sin(-0.3)]));
-
-  // 4. Clean Water Outlet (Right)
-  const gOut = mk("g", {}, g);
-  const runOut = mk("path", { class: "nf hi" }, gOut);
-  runOut.setAttribute("d", seg(P(48, 32, 36), P(66, 14, 36)));
-  const [rOutR, rOutI] = rings(63, 11, 69, 17, 2.6, 0.6);
-  const pipeOut = solid(gOut);
-  put(pipeOut, prism(P, front, rOutR, rOutI, 0, 36));
-  pipeOut.sil.classList.add("hi");
-
-  // 5. Dark Contaminant Particles (Entering left & getting trapped at core)
-  const gParticles = mk("g", {}, g);
-  const darkDots = [];
-  for (let i = 0; i < NP; i++) {
-    darkDots.push(mk("circle", { r: 1.4 + (i % 3) * 0.4, class: i % 2 === 0 ? "dot m" : "dot off" }, gParticles));
+  // The clear bowl: whole rings through its profile, so the near side of the
+  // base draws as an ellipse and not as a cone. A second, inset shell draws
+  // the wall.
+  function shell() {
+    const q = [];
+    for (let k = 0; k <= 18; k++) {
+      const z = lerp(ZB, ZT, k / 18);
+      q.push(...ringAt(P, disc(0, 0, radAt(z), 24), z));
+    }
+    return poly(hull(q));
   }
 
-  // 6. Clean Purified Water Nodes (Exiting right in bright flame orange)
-  const cleanDots = [];
-  for (let j = 0; j < NC; j++) {
-    cleanDots.push(mk("circle", { r: 1.5, class: "dot" }, gOut));
+  // Cartridge: silhouette, the rim and bore the eye starts on, and its pleats.
+  // It rides in [core] so the whole element lifts out over the sump.
+  const core = mk('g', {}, g);
+  const cart = solid(core);
+  put(cart, prism(P, front, disc(0, 0, CR, 32), disc(0, 0, CR - 1.2, 32), CZ0, CZ1));
+  const top = mk("path", { class: "nf lo" }, core);
+  top.setAttribute("d", rimRing(CZ1, CR) + rimRing(CZ1, 4.2) + rimRing(CZ1 - 2.8, 3.6));
+  const low = mk("path", { class: "nf" }, core);
+  low.setAttribute("d", rimRing(CZ0, CR));
+  const pleats = mk("path", { class: "nf" }, core);
+  const pl = [];
+  for (let k = 0; k < 15; k++) {
+    const a = rad(-39 + k * 12);
+    pl.push(seg(P(CR * Math.cos(a), CR * Math.sin(a), CZ0 + 1.2), P(CR * Math.cos(a), CR * Math.sin(a), CZ1 - 0.8)));
+  }
+  pleats.setAttribute("d", pl.join(""));
+
+  // The bowl and what settles in it.
+  const sump = mk("g", {}, g);
+
+  // Grains ride the cartridge's face, drifting round as they go; the mound
+  // below is painted over them, so each one disappears as it lands
+  const grain = [];
+  for (let k = 0; k < NG; k++) grain.push(mk("circle", { r: 1.9, class: k % 3 ? "dot m" : "dot off" }, sump));
+  const ph = grain.map((_, k) => k / NG);
+  const at = (k) => {
+    const t = ph[k], a = rad(-30 + k * 30 + t * 44), r = GR - t * 0.6;
+    return P(r * Math.cos(a), r * Math.sin(a), lerp(GZ0, GZ1, t * t * 0.4 + t * 0.6));
+  };
+
+  const mound = mk("g", {}, sump);
+  const settled = [];
+  for (let k = 0; k < 14; k++) {
+    const a = rad(-40 + k * 26), rr = 1.4 + (k % 5) * 2.2;
+    const d = mk("circle", { r: 1.3 + (k % 3) * 0.3, class: k % 4 ? "dot off" : "dot m" }, mound);
+    settled.push(d);
+    place(d, P(rr * Math.cos(a), rr * Math.sin(a), floor(rr) + 0.5 + (k % 3) * 0.3));
   }
 
-  // Motion math: dark particles enter, hit filter core barrier, and trap
-  function inletPos(u, i) {
-    if (u < 0.3) {
-      const t = u / 0.3;
-      return P(14, 66, t * 36);
-    } else if (u < 0.65) {
-      const t = (u - 0.3) / 0.35;
-      return P(14 + t * 18, 66 - t * 18, 36);
-    } else if (u < 0.85) {
-      const t = (u - 0.65) / 0.2;
-      return P(32 + t * 4, 48 - t * 6, 36 - t * 14);
-    } else {
-      // Trapped against filter core surface: stays stationary on membrane
-      const ang = (i / NP) * Math.PI * 2;
-      const r = 5.2;
-      const z = 12 + ((i * 7) % 16);
-      return P(40 + r * Math.cos(ang), 40 + r * Math.sin(ang), z);
-    }
-  }
+  // Bowl over its contents, then the clamp that hides a grain at its spawn
+  const bowl = mk("path", { class: "nf sil" }, sump);
+  bowl.setAttribute("d", shell());
 
-  // Clean water emerges from inner core and flows smoothly out
-  function outletPos(u) {
-    if (u < 0.25) {
-      const t = u / 0.25;
-      return P(40 + t * 8, 40 - t * 8, 14 + t * 22);
-    } else if (u < 0.7) {
-      const t = (u - 0.25) / 0.45;
-      return P(48 + t * 18, 32 - t * 18, 36);
-    } else {
-      const t = (u - 0.7) / 0.3;
-      return P(66, 14, 36 - t * 32);
-    }
-  }
+  const band = solid(sump);
+  put(band, prism(P, front, disc(0, 0, BR, 36), disc(0, 0, BR - 1, 36), BZ0, BZ1));
+  [32, 58].forEach((d) => {
+    const a = rad(d), b = mk("circle", { r: 1.3, class: "dot off" }, sump);
+    place(b, P(BR * Math.cos(a), BR * Math.sin(a), 41.7));
+  });
 
-  const speed = 0.00032;
+  // Head: a cap wider than the bowl, flat-topped, over the bowl's rim
+  const head = solid(g);
+  head.sil.setAttribute("d", poly(hull(ringAt(P, disc(0, 0, 16.2, 44), ZT).concat(ringAt(P, disc(0, 0, 15.6, 44), 48.6)))));
+  head.cr.setAttribute("d", open(ringAt(P, run(disc(0, 0, 15.7, 44), front), 48.6)));
 
-  const B = register(stage, (_dt, now) => {
-    for (let i = 0; i < NP; i++) {
-      const phase = (now * speed + i / NP) % 1;
-      place(darkDots[i], inletPos(phase, i));
+  // Two risers on the diagonal, so both stand at one height on screen. Each
+  // seats into a hub on the head, so the pipe reads as fitted, not perched.
+  const risers = [];
+  [-1, 1].forEach((s) => {
+    const ring = (r) => disc(s * RX, -s * RX, r, 24);
+    const hub = solid(g), pipe = solid(g), nut = solid(g);
+    const face = mk("path", { class: "nf lo" }, g);
+    hub.sil.setAttribute("d", poly(hull(ringAt(P, ring(4.8), 45.6).concat(ringAt(P, ring(4.4), 50.6)))));
+    pipe.sil.setAttribute("d", poly(hull(ringAt(P, ring(RR), 50).concat(ringAt(P, ring(RR), RZ - 3.2)))));
+    nut.sil.setAttribute("d", poly(hull(ringAt(P, ring(4), RZ - 3.2).concat(ringAt(P, ring(4), RZ)))));
+    face.setAttribute("d", open(ringAt(P, ring(4), RZ)));
+    risers.push(hub.sil, pipe.sil, nut.sil, face);
+  });
+
+  const base = settled.map((d) => d.getAttribute("class"));
+  const B = register(stage, (dt) => {
+    stepS(rate, dt);
+    stepS(lift, dt);
+    stepS(drop, dt);
+    sump.setAttribute("transform", `translate(0 ${drop.x.toFixed(2)})`);
+    core.setAttribute("transform", `translate(0 ${(-lift.x).toFixed(2)})`);
+    const step = (dt * rate.x) / dur;
+    for (let k = 0; k < NG; k++) {
+      ph[k] = (ph[k] + step) % 1;
+      place(grain[k], at(k));
     }
-    for (let j = 0; j < NC; j++) {
-      const phase = (now * speed + j / NC) % 1;
-      place(cleanDots[j], outletPos(phase));
-    }
-    return true; // Ambient continuous loop
+    return true;
   });
   bag.add(B.unregister);
 
-  read.textContent = "rest";
+  const parts = [
+    { name: "inlet", p: P(-RX, RX, 54), r: 22, hi: [risers[0], risers[1]] },
+    { name: "outlet", p: P(RX, -RX, 54), r: 22, hi: [risers[4], risers[5]] },
+    { name: "head", p: P(0, 0, 46), r: 34, hi: [head.sil] },
+    { name: "sump", p: P(0, 0, 26), r: 48, hi: [bowl] },
+  ];
 
-  bag.add(pointer(stage, {
-    move: () => { read.textContent = "purifying 99.9%"; },
-    leave: () => { read.textContent = "rest"; },
-  }));
+  function pick([sx, sy]) {
+    let best = -1, min = 1e9;
+    parts.forEach((q, i) => {
+      const d = Math.hypot(sx - q.p[0], sy - q.p[1]);
+      if (d < q.r && d < min) { min = d; best = i; }
+    });
+    return best;
+  }
+
+  function setActive(a) {
+    if (a === act) return;
+    act = a;
+    parts.forEach((q, i) => q.hi.forEach((s) => s.classList.toggle("hi", i === a)));
+    top.setAttribute("class", a < 0 ? "nf hi" : "nf lo");
+    settled.forEach((d, i) => d.setAttribute("class", a === 3 ? "dot" : base[i]));
+    rate.t = a === 3 ? 0.16 : 1;
+    lift.t = a === 3 ? 6 : 0;
+    drop.t = a === 3 ? 14 : 0;
+    read.textContent = a < 0 ? "rest" : parts[a].name;
+    B.wake();
+  }
+
+  setActive(-1);
+  bag.add(pointer(stage, { move: (p) => setActive(pick(p)), leave: () => setActive(-1) }));
   bag.add(() => svg.replaceChildren());
 
   return {
-    set: () => {},
+    set: (v) => { dur = clamp(v, 3, 14); },
     destroy: bag.dispose,
   };
 }
 
 hairline({
   name: "purifier",
-  means: "A water purification unit: raw water with sediment enters, gets purified through the core, and clean water flows out.",
-  rules: [4, 6, 7, 9],
-  range: [0, 50, 100],
+  means: "A whole-home water filter where sediment runs down the pleated cartridge and settles in the sump.",
+  rules: [1, 4, 7, 9],
+  range: [3, 7, 14],
   mount,
 });
